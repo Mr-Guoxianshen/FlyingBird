@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <loading :text="loadText" :show="isLoading" class='loading'></loading>
+
     <transition :name="transitionName">
       <router-view/>
     </transition>
@@ -8,7 +10,6 @@
 
 <script>
   import Vue from 'vue'
-
   import Common from './components/common/api.js'
   import {mapGetters} from 'vuex'
   import {Confirm, Loading, Alert, XDialog, TransferDom, ToastPlugin} from 'vux'
@@ -31,6 +32,7 @@
     computed: {
       ...mapGetters({
         transitionName: 'GET_PAGE_TRANSITION',
+        isLoading: 'GET_LOADING_STATUS',
       })
     },
     mounted() {
@@ -59,6 +61,77 @@
     height: 100%;
     width: 100%;
     overflow-x: hidden;
+  }
+
+  @keyframes ivuSlideLeftIn{
+    0%{
+      opacity:0;
+      -webkit-transform-origin:0 0;
+      transform-origin:0 0;
+      -webkit-transform:scaleX(.8);
+      transform:scaleX(.8)
+    }
+    100%{
+      opacity:1;
+      -webkit-transform-origin:0 0;
+      transform-origin:0 0;
+      -webkit-transform:scaleX(1);
+      transform:scaleX(1)
+    }
+  }
+  @keyframes ivuSlideLeftOut{
+    0%{
+      opacity:1;
+      -webkit-transform-origin:0 0;
+      transform-origin:0 0;
+      -webkit-transform:scaleX(1);
+      transform:scaleX(1)
+    }
+    100%{
+      opacity:0;
+      -webkit-transform-origin:0 0;
+      transform-origin:0 0;
+      -webkit-transform:scaleX(.8);
+      transform:scaleX(.8)
+    }
+  }
+
+  .slide-left-appear,.slide-left-enter-active{
+    -webkit-animation-duration:.3s;
+    animation-duration:.3s;
+    -webkit-animation-fill-mode:both;
+    animation-fill-mode:both;
+    -webkit-animation-play-state:paused;
+    animation-play-state:paused
+  }
+  .slide-left-leave-active{
+    -webkit-animation-duration:.3s;
+    animation-duration:.3s;
+    -webkit-animation-fill-mode:both;
+    animation-fill-mode:both;
+    -webkit-animation-play-state:paused;
+    animation-play-state:paused
+  }
+  .slide-left-appear,.slide-left-enter-active{
+    -webkit-animation-name:ivuSlideLeftIn;
+    animation-name:ivuSlideLeftIn;
+    -webkit-animation-play-state:running;
+    animation-play-state:running
+  }
+  .slide-left-leave-active{
+    -webkit-animation-name:ivuSlideLeftOut;
+    animation-name:ivuSlideLeftOut;
+    -webkit-animation-play-state:running;
+    animation-play-state:running
+  }
+  .slide-left-appear,.slide-left-enter-active{
+    opacity:0;
+    -webkit-animation-timing-function:ease-in-out;
+    animation-timing-function:ease-in-out
+  }
+  .slide-left-leave-active{
+    -webkit-animation-timing-function:ease-in-out;
+    animation-timing-function:ease-in-out
   }
 
   html, body, div, span, applet, object, iframe,

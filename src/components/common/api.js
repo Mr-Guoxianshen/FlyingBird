@@ -1,7 +1,6 @@
 import store from "../../store/store";
 
 const baseUrl = resourceConfig.api;
-const bdcUrl = resourceConfig.bdcApi;
 const common = {
   get(target, options, success, error) {
     store.commit("SET_LOADING_STATUS", true);

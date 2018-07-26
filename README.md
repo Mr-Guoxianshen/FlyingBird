@@ -1,6 +1,6 @@
 # real-estate
 
-> 在线课表项目
+> PWA 新闻应用DEMO
 
 ## Build Setup
 

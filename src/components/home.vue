@@ -1,7 +1,7 @@
 <template>
   <div class="home tans">
     <div class="imgBox">
-      <img src="../assets/images/timg.jpg" alt="">
+      <img src="static/images/timg.jpg" alt="">
 
       <span @click="open">立即开启</span>
     </div>
@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     open () {
-      this.$router.push('/bird')
+      this.$router.push('/main')
     }
   }
 }

@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home'
-import Bird from '@/components/bird'
+import Main from '@/components/main'
+import Detial from '@/components/detial'
 
 Vue.use(Router)
 
@@ -17,9 +18,14 @@ export default new Router({
       component: Home
     },
     {
-      path: '/bird',
-      name: 'bird',
-      component: Bird
+      path: '/main',
+      name: 'main',
+      component: Main
+    },
+    {
+      path: '/detial',
+      name: 'detial',
+      component: Detial
     },
   ]
 })
